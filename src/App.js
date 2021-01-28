@@ -5,14 +5,32 @@ import contacts from './contacts.json'
 class App extends React.Component {
 
   state = {
-    contactsList: contacts.slice(0, 5)
+    contactsList: []
+  }
+
+  getContactList = () => {
+    let copyList = contacts.slice(0, 5)
+
+    copyList.forEach((contact) => {
+      let contactName = contact.name
+      let arrayName = contactName.split(' ')
+      let contactFullName = arrayName.join('_')
+
+      contact.wikiUrl = `https://en.wikipedia.org/wiki/${contactFullName}`
+    })
+
+    this.setState({contactsList: copyList})
   }
 
   addRandomContact = () => {
     let randomContact = contacts[Math.floor(Math.random() * contacts.length)]
     let copyList = [...this.state.contactsList]
 
+    let arrayName = randomContact.name.split(' ')
+    let contactFullName = arrayName.join('_')
+
       if(!copyList.includes(randomContact)) {
+        randomContact.wikiUrl = `https://en.wikipedia.org/wiki/${contactFullName}`
         copyList.unshift(randomContact)
       } else if (contacts.length === copyList.length) {
         return alert("¡Hey!\nThere are no more contacts in the list.\nNow you can sort the list by name or popularity.")
@@ -53,6 +71,10 @@ class App extends React.Component {
     this.setState({contactsList: newList})
   }
 
+  componentDidMount = () => {
+    this.getContactList()
+  }
+
   render() {
     return (
       <div className="App">
@@ -75,7 +97,7 @@ class App extends React.Component {
             {this.state.contactsList.map((contact, idx) => (
               <tr className='items-list' key= {idx}>
                 <td><img src={contact.pictureUrl} alt={contact.name}></img></td>
-                <td>{contact.name}</td>
+                <td><a href={contact.wikiUrl} target='_blank' rel="noopener noreferrer">{contact.name}</a></td>
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td><button className="delete-btn" onClick={()=>this.deleteContact(idx)}>Delete</button></td>
               </tr>
