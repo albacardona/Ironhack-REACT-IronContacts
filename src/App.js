@@ -58,9 +58,9 @@ class App extends React.Component {
       <div className="App">
         <h1>IronContacts</h1>
 
-        <button onClick={this.addRandomContact}>Add Random Contact</button>
-        <button onClick={this.sortByName}>Sort by name</button>
-        <button onClick={this.sortByPopularity}>Sort by popularity</button>
+        <button className="btn" onClick={this.addRandomContact}>Add Random Contact</button>
+        <button className="btn" onClick={this.sortByName}>Sort by name</button>
+        <button className="btn" onClick={this.sortByPopularity}>Sort by popularity</button>
 
         <table>
           <thead>
@@ -73,11 +73,11 @@ class App extends React.Component {
           </thead>
           <tbody>
             {this.state.contactsList.map((contact, idx) => (
-              <tr key= {idx}>
+              <tr className='items-list' key= {idx}>
                 <td><img src={contact.pictureUrl} alt={contact.name}></img></td>
                 <td>{contact.name}</td>
                 <td>{contact.popularity.toFixed(2)}</td>
-                <td><button onClick={()=>this.deleteContact(idx)}>Delete</button></td>
+                <td><button className="delete-btn" onClick={()=>this.deleteContact(idx)}>Delete</button></td>
               </tr>
             ))}
           </tbody>
