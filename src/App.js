@@ -18,7 +18,7 @@ class App extends React.Component {
 
       contact.wikiUrl = `https://en.wikipedia.org/wiki/${contactFullName}`
     })
-
+    console.log(copyList)
     this.setState({contactsList: copyList})
   }
 
@@ -110,4 +110,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default App
