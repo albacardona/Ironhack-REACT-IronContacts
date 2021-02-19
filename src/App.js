@@ -78,11 +78,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <a className='link-repo' href='https://github.com/albacardona/Ironhack-REACT-IronContacts' target='_blank' rel="noopener noreferrer">Check the repo</a>
+        
         <h1>IronContacts</h1>
+          
+          <div>
+            <button className="btn" onClick={this.addRandomContact}>Add Random Contact</button>
+            <button className="btn" onClick={this.sortByName}>Sort by name</button>
+            <button className="btn" onClick={this.sortByPopularity}>Sort by popularity</button>
+          </div>
 
-        <button className="btn" onClick={this.addRandomContact}>Add Random Contact</button>
-        <button className="btn" onClick={this.sortByName}>Sort by name</button>
-        <button className="btn" onClick={this.sortByPopularity}>Sort by popularity</button>
 
         <table>
           <thead>

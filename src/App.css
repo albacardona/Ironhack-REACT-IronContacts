@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Ubuntu';
-  color: #414141;
+  color: #414141; 
 }
 
 h1 {
@@ -23,6 +23,7 @@ h1 {
   border: 2px solid #555555;
   border-radius: .3rem;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 
 .btn {
@@ -68,4 +69,23 @@ td {
 
 img {
   height: 100px;
+}
+
+.link-repo {
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  text-decoration: none;
+  padding: 5px 10px;  
+  color: whitesmoke;
+  border: 2px solid #555555;
+  border-radius: .3rem;
+  font-size: 1.1rem;
+  background-color: #4dad75;
+  cursor: pointer;
+}
+
+.link-repo:hover {
+  background-color: #449164;
 }
